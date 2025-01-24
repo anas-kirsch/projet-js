@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .pokedex{
+            display : grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            background-color: rgb(209, 74, 74);
+        }
+    </style>
+</head>
+<body>
+    <h1>Pokedex</h1>
+    <div class="pokedex">
+
+    </div>
+</body>
+</html>
+<script>
+    const pokedex = document.querySelector("div");
+    fetch("https://pokebuildapi.fr/api/v1/pokemon/limit/100").then((reponseHttp)=>{
+        return reponseHttp.json();
+    }).then(pokemons=>{
+        console.log(pokemons);
+        pokemons.forEach(pokemon => {
+            const p = document.createElement("p");
+            const sprite = document.createElement("img");
+            p.innerText = pokemon.name;
+            sprite.src = pokemon.sprite;
+            pokedex.appendChild(p);
+            pokedex.appendChild(sprite);
+        });
+        
+    });
+</script>
