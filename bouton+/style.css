@@ -1,0 +1,18 @@
+body{
+    margin: 0;
+    background-color: greenyellow;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+button{
+    padding: 10px;
+    border-radius: 10px;
+    border-style:none;
+    background-color: rgb(30, 117, 44);
+    color: white;
+}
